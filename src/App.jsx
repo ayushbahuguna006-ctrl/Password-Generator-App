@@ -29,7 +29,7 @@ function App() {
   <img 
     src={Alexei}
     alt="Pic"
-    className="w-16 h-auto mb-8 ml-40 rounded-lg md:h-16 md:relative md:top-8 md:right-26 cursor-pointer"
+    className="w-16 h-auto mb-8 ml-38 rounded-lg md:h-16 md:relative md:top-8 md:right-26 cursor-pointer"
   />
 
  
