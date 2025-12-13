@@ -1,0 +1,14 @@
+@import "tailwindcss";
+img{
+animation: slidedown 1s ease-in;
+}
+@keyframes slidedown{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+#div1{
+    animation: slidedown 2s ease-in;
+}
+#div2{
+    animation: slidedown 2s ease-in;
+}
