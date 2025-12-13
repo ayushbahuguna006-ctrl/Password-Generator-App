@@ -4,7 +4,7 @@ A simple and interactive web application that allows users to generate secure pa
 
 <h2>Table of Contents</h2>
 
-Features
+Featuresn
 
 Technologies Used
 
