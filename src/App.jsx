@@ -1,11 +1,40 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import './App.css';
 import Alexei from "./assets/Alexei.jpg";
 
 function App() {
  
+ 
+const [length,setlength]=useState(10);
+const [char,setchar]=useState(false);
+const [number,setnumber]=useState(false);
+const [fpass,setfpass]=useState("");
 
+ 
+ 
+ const pass=()=>{if(char==true || number==true){
+  let finalpass=""
+  let charset="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+ let numb="123456789"
+ let ipass="";
+  if(char==true){ipass+=charset}
+  if(number==true){ipass+=numb}
+  for(let i=0;i<length;i++){
+    finalpass+=ipass.charAt(Math.floor(Math.random()*ipass.length))
+  }
+  setfpass(finalpass);
+ }
+ else{
+  alert("Please Check atleast One Checkbox");
+ }}
+let copypass=()=>{navigator.clipboard.writeText(fpass)
+  alert("Text Copied to Cipboard")
+};
+
+ 
   return (
+    
+    
     <>
   <div className="bg-red-200 min-h-screen w-full overflow-x-hidden">
     <div>
@@ -57,29 +86,30 @@ function App() {
 
       
         <div className="bg-white h-[350px] w-[370px] shadow-2xl border-black border-2 rounded-xl 
-        hover:border-blue-300 hover:border-2 hover:w-[400px] transition-all ease-in duration-200 delay-300 p-4 relative top-40 md:-mt-20 lg:-mt-60
+        hover:border-blue-300 hover:border-2  transition-all ease-in duration-200 delay-100 p-4 relative top-40 md:-mt-20 lg:-mt-60
   ">
 
           <label>
             <input
               type="text"
+              value={fpass}
               placeholder="   Your Password Appears Here"
-              className="h-12 w-64 text-black border-black mt-5 border-2 rounded-xl"
+              className="h-12 w-64 text-sky-500 border-black mt-5 border-2 rounded-xl"
             />
           </label>
 
-          <button className="bg-cyan-500 rounded-xl h-11 ml-2 mt-3 w-16 font-bold cursor-pointer">
+          <button className="bg-cyan-500 rounded-xl h-11 ml-2 mt-3 w-16 font-bold cursor-pointer " onClick={copypass}>
             COPY
           </button>
 
         
           <div className="mt-6 flex flex-col">
            <div> <label>
-              <input type="range" className="w-40 relative left-10" />
-            </label> <label className='relative bottom-1 left-13'>Length:</label></div>
+              <input type="range" onChange={(e)=>setlength(e.target.value)} min="8" max="12" className="w-40 relative left-10" />
+            </label> <label className='relative bottom-1 left-13'>Length:{length}</label></div>
            
-            <div className='relative left-13'><label>Numbers <input type="Checkbox" className='relative top-0.5' /></label>   <label className='ml-6'>Characters<input type="Checkbox" className='relative left-1 top-0.5'  /></label></div>
-           
+            <div className='relative left-13'><label>Numbers <input type="checkbox" onChange={()=>{if(number==true){setnumber(false)}else{setnumber(true)}}} className='relative top-0.5' /></label>   <label className='ml-6'>Characters<input type="checkbox" onChange={()=>{if(char==true){setchar(false)}else{setchar(true)}}} className='relative left-1 top-0.5'  /></label></div>
+           <button onClick={pass} className='border-red-100 border-2 mt-16 rounded-xl h-12 cursor-pointer bg-blue-100 hover:bg-amber-50 hover:text-red-500 hover:border-4 hover:border-red-100'>GENERATE</button>
           </div>
 
         </div>
