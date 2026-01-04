@@ -4,7 +4,7 @@ import Alexei from "./assets/Alexei.jpg";
 
 function App() {
  
- 
+// const [var,setvar]=usestate(true)
 const [length,setlength]=useState(10);
 const [char,setchar]=useState(false);
 const [number,setnumber]=useState(false);
